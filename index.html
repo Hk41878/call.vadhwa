@@ -1,65 +1,346 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Call</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background: #f5f5f5;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            text-align: center;
-        }
+<title>Contact</title>
 
-        .box {
-            background: white;
-            padding: 40px 25px;
-            border-radius: 20px;
-            max-width: 350px;
-            width: 80%;
-            box-shadow: 0 5px 25px rgba(0,0,0,0.1);
-        }
+<style>
+* {
+    box-sizing: border-box;
+}
 
-        h1 {
-            margin-bottom: 10px;
-        }
+html, body {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display",
+                 "Segoe UI", sans-serif;
+}
 
-        p {
-            color: #666;
-            margin-bottom: 25px;
-        }
+body {
+    background:
+        radial-gradient(circle at 20% 20%, #263b68 0%, transparent 35%),
+        radial-gradient(circle at 80% 80%, #4b183d 0%, transparent 40%),
+        linear-gradient(135deg, #090b16, #111526);
 
-        a {
-            display: inline-block;
-            background: #22a447;
-            color: white;
-            text-decoration: none;
-            padding: 14px 30px;
-            border-radius: 10px;
-            font-size: 18px;
-        }
-    </style>
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+/* Lava background */
+.lava {
+    position: absolute;
+    inset: -100px;
+    overflow: hidden;
+    filter: blur(45px);
+    opacity: 0.65;
+}
+
+.blob {
+    position: absolute;
+    border-radius: 50%;
+    mix-blend-mode: screen;
+    animation: float 15s infinite ease-in-out;
+}
+
+.blob:nth-child(1) {
+    width: 230px;
+    height: 230px;
+    background: #ff3b81;
+    left: 5%;
+    top: 10%;
+    animation-duration: 13s;
+}
+
+.blob:nth-child(2) {
+    width: 300px;
+    height: 300px;
+    background: #5b5cff;
+    right: 0;
+    top: 30%;
+    animation-duration: 17s;
+    animation-delay: -4s;
+}
+
+.blob:nth-child(3) {
+    width: 200px;
+    height: 200px;
+    background: #00d4ff;
+    left: 30%;
+    bottom: -30px;
+    animation-duration: 19s;
+    animation-delay: -8s;
+}
+
+@keyframes float {
+    0% {
+        transform: translate(0, 0) scale(1);
+    }
+
+    25% {
+        transform: translate(80px, -60px) scale(1.15);
+    }
+
+    50% {
+        transform: translate(-40px, -130px) scale(0.9);
+    }
+
+    75% {
+        transform: translate(-100px, 40px) scale(1.2);
+    }
+
+    100% {
+        transform: translate(0, 0) scale(1);
+    }
+}
+
+/* Main */
+.container {
+    position: relative;
+    z-index: 5;
+    width: min(90%, 390px);
+    text-align: center;
+}
+
+.title {
+    color: white;
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    letter-spacing: -0.5px;
+}
+
+.subtitle {
+    color: rgba(255,255,255,0.6);
+    font-size: 15px;
+    margin-bottom: 45px;
+}
+
+/* Buttons */
+.buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
+}
+
+.contact {
+    width: 210px;
+    min-height: 68px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+
+    color: white;
+    text-decoration: none;
+
+    border-radius: 40px;
+
+    background: rgba(255,255,255,0.11);
+    border: 1px solid rgba(255,255,255,0.2);
+
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+
+    box-shadow:
+        0 10px 35px rgba(0,0,0,0.25),
+        inset 0 1px 1px rgba(255,255,255,0.15);
+
+    font-size: 18px;
+    font-weight: 600;
+
+    transition: transform 0.3s ease;
+}
+
+/* Infinite bubble movement */
+.contact:nth-child(1) {
+    animation: bubble1 6s ease-in-out infinite;
+}
+
+.contact:nth-child(2) {
+    animation: bubble2 7s ease-in-out infinite;
+}
+
+.contact:nth-child(3) {
+    animation: bubble3 5.5s ease-in-out infinite;
+}
+
+@keyframes bubble1 {
+    0%, 100% {
+        transform: translate(0, 0) rotate(-1deg);
+    }
+
+    25% {
+        transform: translate(-22px, -12px) rotate(2deg);
+    }
+
+    50% {
+        transform: translate(18px, -25px) rotate(-2deg);
+    }
+
+    75% {
+        transform: translate(-12px, 8px) rotate(1deg);
+    }
+}
+
+@keyframes bubble2 {
+    0%, 100% {
+        transform: translate(0, 0) scale(1);
+    }
+
+    25% {
+        transform: translate(25px, -18px) scale(1.05);
+    }
+
+    50% {
+        transform: translate(-20px, -30px) scale(0.97);
+    }
+
+    75% {
+        transform: translate(18px, 12px) scale(1.03);
+    }
+}
+
+@keyframes bubble3 {
+    0%, 100% {
+        transform: translate(0, 0);
+    }
+
+    30% {
+        transform: translate(-18px, -20px);
+    }
+
+    60% {
+        transform: translate(24px, -10px);
+    }
+
+    80% {
+        transform: translate(-10px, 15px);
+    }
+}
+
+.contact:hover {
+    transform: scale(1.08);
+}
+
+.contact:active {
+    transform: scale(0.94);
+}
+
+/* Icons */
+.icon {
+    font-size: 25px;
+}
+
+.call {
+    background: rgba(50, 210, 110, 0.16);
+}
+
+.whatsapp {
+    background: rgba(37, 211, 102, 0.18);
+}
+
+.message {
+    background: rgba(70, 150, 255, 0.18);
+}
+
+/* Small floating particles */
+.particle {
+    position: absolute;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.35);
+    animation: particle 9s linear infinite;
+}
+
+.p1 { left: 15%; bottom: -20px; animation-delay: 0s; }
+.p2 { left: 70%; bottom: -20px; animation-delay: 3s; }
+.p3 { left: 45%; bottom: -20px; animation-delay: 6s; }
+
+@keyframes particle {
+    from {
+        transform: translateY(0) scale(0.5);
+        opacity: 0;
+    }
+
+    20% {
+        opacity: 0.8;
+    }
+
+    80% {
+        opacity: 0.5;
+    }
+
+    to {
+        transform: translateY(-110vh) scale(1.3);
+        opacity: 0;
+    }
+}
+</style>
 </head>
 
 <body>
 
-<div class="box">
-    <h1>📞 Call</h1>
-    <p>+39 331 902 1033</p>
+<!-- Lava blobs -->
+<div class="lava">
+    <div class="blob"></div>
+    <div class="blob"></div>
+    <div class="blob"></div>
+</div>
 
-    <a href="tel:+393319021033">Call Again</a>
+<!-- Floating particles -->
+<div class="particle p1"></div>
+<div class="particle p2"></div>
+<div class="particle p3"></div>
+
+<div class="container">
+
+    <div class="title">Get in touch</div>
+
+    <div class="subtitle">
+        Choose how you'd like to contact me
+    </div>
+
+    <div class="buttons">
+
+        <!-- CALL -->
+        <a class="contact call"
+           href="tel:+393319021033">
+            <span class="icon">📞</span>
+            <span>Call</span>
+        </a>
+
+        <!-- WHATSAPP -->
+        <a class="contact whatsapp"
+           href="https://wa.me/393319021033">
+            <span class="icon">🟢</span>
+            <span>WhatsApp</span>
+        </a>
+
+        <!-- MESSAGE -->
+        <a class="contact message"
+           href="sms:+393319021033">
+            <span class="icon">💬</span>
+            <span>Message</span>
+        </a>
+
+    </div>
+
 </div>
 
 <script>
-    setTimeout(function () {
-        window.location.href = "tel:+393319021033";
-    }, 300);
+/* Automatically open call option */
+setTimeout(function() {
+    window.location.href = "tel:+393319021033";
+}, 500);
 </script>
 
 </body>
