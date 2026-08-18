@@ -1,9 +1,66 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta http-equiv="refresh" content="0; url=tel:+393319021033">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Call</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f5f5f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            text-align: center;
+        }
+
+        .box {
+            background: white;
+            padding: 40px 25px;
+            border-radius: 20px;
+            max-width: 350px;
+            width: 80%;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            margin-bottom: 10px;
+        }
+
+        p {
+            color: #666;
+            margin-bottom: 25px;
+        }
+
+        a {
+            display: inline-block;
+            background: #22a447;
+            color: white;
+            text-decoration: none;
+            padding: 14px 30px;
+            border-radius: 10px;
+            font-size: 18px;
+        }
+    </style>
 </head>
+
 <body>
+
+<div class="box">
+    <h1>📞 Call</h1>
+    <p>+39 331 902 1033</p>
+
+    <a href="tel:+393319021033">Call Again</a>
+</div>
+
+<script>
+    setTimeout(function () {
+        window.location.href = "tel:+393319021033";
+    }, 300);
+</script>
+
 </body>
 </html>
